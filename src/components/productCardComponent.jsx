@@ -43,11 +43,12 @@ export default function ProductCardComponent({
   ];
 
   return (
-    // p-3 = the gap between the card edge and the image. The card itself no longer moves on hover.
-    <article className="group w-[320px] bg-[#E8E4D5] overflow-hidden rounded-[28px] bg-foam p-3 font-sans text-ink shadow-[0_1px_0_rgba(16,48,44,.08),0_10px_24px_-14px_rgba(16,48,44,.35)] transition-shadow duration-300 hover:shadow-[0_1px_0_rgba(16,48,44,.08),0_18px_30px_-16px_rgba(16,48,44,.45)] motion-reduce:transition-none">
+    // Phone: narrower card (260px), tighter padding, smaller radius.
+    // sm (640px) and up: original 320px card.
+    <article className="group w-[260px] sm:w-[320px] bg-[#E8E4D5] overflow-hidden rounded-[22px] sm:rounded-[28px] bg-foam p-2 sm:p-3 font-sans text-ink shadow-[0_1px_0_rgba(16,48,44,.08),0_10px_24px_-14px_rgba(16,48,44,.35)] transition-shadow duration-300 hover:shadow-[0_1px_0_rgba(16,48,44,.08),0_18px_30px_-16px_rgba(16,48,44,.45)] motion-reduce:transition-none">
       {/* media: rounded frame that clips the zooming image */}
       <div
-        className="relative h-[240px] overflow-hidden rounded-[20px] bg-[#5FB79A]"
+        className="relative h-[180px] sm:h-[240px] overflow-hidden rounded-[16px] sm:rounded-[20px] bg-[#5FB79A]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}
@@ -99,7 +100,7 @@ export default function ProductCardComponent({
 
         {/* dots */}
         {count > 1 && (
-          <div className="absolute right-3 top-3 flex gap-1.5 rounded-full bg-ink/35 px-2 py-[5px]">
+          <div className="absolute right-2 top-2 sm:right-3 sm:top-3 flex gap-1.5 rounded-full bg-ink/35 px-2 py-[5px]">
             {images.map((_, i) => (
               <button
                 key={i}
@@ -116,19 +117,19 @@ export default function ProductCardComponent({
       </div>
 
       {/* body */}
-      <div className="px-3 pb-3 pt-4">
-        <h3 className="mb-4 font-display text-2xl font-semibold leading-tight tracking-tight">
+      <div className="px-2 pb-2 pt-3 sm:px-3 sm:pb-3 sm:pt-4">
+        <h3 className="mb-3 sm:mb-4 font-display text-lg sm:text-2xl font-semibold leading-tight tracking-tight">
           {name}
         </h3>
-        <div className="flex items-center justify-between gap-3">
-          <p className="m-0 text-2xl font-semibold">
-            <span className="mr-0.5 text-lg opacity-70">{currency}</span>
+        <div className="flex items-center justify-between gap-2 sm:gap-3">
+          <p className="m-0 text-lg sm:text-2xl font-semibold">
+            <span className="mr-0.5 text-base sm:text-lg opacity-70">{currency}</span>
             {formatted}
           </p>
           <button
             type="button"
             onClick={handleBuy}
-            className={`group/btn cursor-pointer relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-ink px-6 py-3 text-[15px] font-semibold text-foam shadow-[0_6px_14px_-6px_rgba(16,48,44,.6)] transition duration-300 hover:shadow-[0_10px_18px_-6px_rgba(46,125,84,.7)] active:scale-95 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-spirulina ${
+            className={`group/btn cursor-pointer relative inline-flex items-center gap-1.5 sm:gap-2 overflow-hidden rounded-full bg-ink px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-[15px] font-semibold text-foam shadow-[0_6px_14px_-6px_rgba(16,48,44,.6)] transition duration-300 hover:shadow-[0_10px_18px_-6px_rgba(46,125,84,.7)] active:scale-95 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-spirulina ${
               clicked ? "animate-pop" : ""
             }`}
           >
@@ -137,11 +138,11 @@ export default function ProductCardComponent({
               aria-hidden="true"
               className="absolute inset-0 -translate-x-full rounded-full bg-gradient-to-r from-[#256B46] to-kelp transition-transform duration-500 ease-out group-hover/btn:translate-x-0 motion-reduce:transition-none"
             />
-            <span className="relative">Buy now</span>
+            <span className="relative whitespace-nowrap">Buy now</span>
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
-              className="relative h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1 motion-reduce:transition-none"
+              className="relative h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover/btn:translate-x-1 motion-reduce:transition-none"
             >
               <path
                 d="M5 12h14M13 6l6 6-6 6"
