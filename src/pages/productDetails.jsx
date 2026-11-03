@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Check, ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import { getProduct } from "../products/products.js";
 
-const WHATSAPP_NUMBER = "919257665132";
+const WHATSAPP_NUMBER = "919530290504";
 
 const fmt = (n) => n.toLocaleString("en-IN", { maximumFractionDigits: 2 });
 
@@ -191,18 +191,7 @@ function ProductDetail() {
             ))}
           </dl>
 
-          {/* benefits */}
-          <h2 className="mt-8 font-display text-xl font-semibold">Why people choose it</h2>
-          <ul className="mt-3 space-y-2.5">
-            {product.benefits.map((b) => (
-              <li key={b} className="flex items-center gap-3">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#244333] text-white">
-                  <Check size={14} strokeWidth={3} />
-                </span>
-                {b}
-              </li>
-            ))}
-          </ul>
+          
 
           {/* quantity + buy (desktop) */}
           <div className="mt-9 border-t border-[#244333]/10 pt-7">
